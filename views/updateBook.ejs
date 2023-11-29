@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Edit Book</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-color: #f5f5f5; /* Light Gray */
+      }
+
+      .container {
+        width: 500px;
+        padding: 20px;
+        background-color: white;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      form {
+        padding: 10px;
+        border: 1px solid #d1d5db; /* Light Gray */
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.9);
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc; /* Light Gray */
+        border-radius: 3px;
+        background-color: #f5f5f5; /* Light Gray */
+      }
+
+      label {
+        font-weight: bold;
+      }
+
+      .submit {
+        background-color: #ff8c8c; /* Soft Red-Pink */
+        color: white;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+        border-radius: 3px;
+        transition: background-color 0.3s;
+      }
+
+      .submit:hover {
+        background-color: #ff7070; /* Darker shade on hover */
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #333;
+      }
+
+      /* Additional style for adjusting transparency */
+      form {
+        background-color: rgba(255, 255, 255, 0.9);
+      }
+
+      /* Additional style for input fields on edit page */
+      input[type="text"],
+      textarea,
+      input[type="date"],
+      input[type="number"] {
+        color: #333;
+        background-color: white;
+        border: 1px solid #ccc; /* Light Gray */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <form action="/books/<%= book._id %>/update" method="post">
+        <h1>Edit Book</h1>
+        <label for="title">Title</label>
+        <input type="text" id="title" name="title" value="<%= book.title %>" />
+        <br />
+        <label for="author">Author</label>
+        <input
+          type="text"
+          id="author"
+          name="author"
+          value="<%= book.author %>"
+        />
+        <br />
+        <br />
+        <label for="datePublished">Date Published</label>
+        <input
+          type="date"
+          id="datePublished"
+          name="datePublished"
+          value="<%= book.datePublished %>"
+        />
+        <br />
+        <label for="description">Description</label>
+        <textarea id="description" name="description">
+        <%= book.description %></textarea
+        >
+        <br />
+        <label for="pageCount">Page Count</label>
+        <input
+          type="number"
+          id="pageCount"
+          name="pageCount"
+          value="<%= book.pageCount %>"
+        />
+        <br />
+        <label for="genre">Genre</label>
+        <textarea id="genre" name="genre"><%= book.genre %></textarea>
+        <br />
+        <label for="publisher">Publisher</label>
+        <input
+          type="text"
+          id="publisher"
+          name="publisher"
+          value="<%= book.publisher %>"
+        />
+        <input class="submit" type="submit" value="update" />
+      </form>
+    </div>
+  </body>
+</html>

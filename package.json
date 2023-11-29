@@ -1,0 +1,48 @@
+{
+  "name": "week-6-task",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "boot": "npx tsc --watch",
+    "start": "node ./bin/www",
+    "dev": "nodemon ./bin/www"
+  },
+  "dependencies": {
+    "@apollo/server": "^4.9.2",
+    "@types/bcrypt": "^5.0.0",
+    "@types/joi": "^17.2.3",
+    "@types/jsonwebtoken": "^9.0.2",
+    "@types/mongoose": "^5.11.97",
+    "@types/sequelize": "^4.28.15",
+    "bcrypt": "^5.1.1",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "dotenv": "^16.3.1",
+    "ejs": "^3.1.9",
+    "express": "~4.16.1",
+    "graphql": "^16.8.0",
+    "http-errors": "~1.6.3",
+    "jade": "~1.11.0",
+    "joi": "^17.9.2",
+    "jsonwebtoken": "^9.0.1",
+    "mongoose": "^7.4.3",
+    "morgan": "~1.9.1",
+    "sqlite3": "^5.1.6",
+    "swiper": "^11.0.5",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "@types/cookie-parser": "^1.4.3",
+    "@types/express": "^4.17.17",
+    "@types/http-errors": "^2.0.1",
+    "@types/morgan": "^1.9.4",
+    "@types/uuid": "^9.0.2",
+    "nodemon": "^3.0.1",
+    "typescript": "^5.1.6"
+  },
+  "description": "https://hub.docker.com/repository/docker/tochukwuomeja/booksapp/general",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

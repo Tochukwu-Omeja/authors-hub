@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: url("https://img.freepik.com/premium-photo/sheet-white-thin-crumpled-craft-paper-background-top-view-wrinkled-grey-wrapping-paper-texture-pattern_162695-1535.jpg?w=996") no-repeat center center fixed;
+      background-size: cover;
+    }
+    
+    .login-container {
+      background-color: rgba(255, 255, 255, 0.372);
+      padding: 40px;
+      border-radius: 5px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      width: 400px;
+      max-width: 90%;
+    }
+
+    .login-container h2 {
+      margin: 0 0 20px;
+    }
+
+    .login-form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .login-form input {
+      margin-bottom: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+
+    .login-form button {
+      padding: 10px;
+      background-color: rgb(0, 187, 177);
+      color: #ffffff;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    .login-form button:hover {
+      background-color: rgb(0, 143, 133);
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Login</h2>
+    <form class="login-form" action="/users/login" method="post">
+      <input type="text" name="email" placeholder="Email">
+      <input type="password" name="password" placeholder="Password">
+      <button>Login</button>
+    </form>
+    <div class="image-container">
+      <img src="/public/stylesheets/photos/pexels-cdc-3992949.jpg" alt="" srcset="">
+    </div>
+  </div>
+</body>
+</html>

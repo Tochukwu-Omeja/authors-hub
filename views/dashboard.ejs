@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Author Dashboard</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+
+      .slideshow {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        animation: slideshow 60s infinite;
+        background-size: cover;
+      }
+
+      @keyframes slideshow {
+        0%,
+        100% {
+          background-image: url("https://w0.peakpx.com/wallpaper/965/615/HD-wallpaper-renaissance-michelangelo-sculpture-david-florence-statue-italy-marble-statue.jpg");
+        }
+        40.33% {
+          background-image: url("https://w0.peakpx.com/wallpaper/49/733/HD-wallpaper-statue-of-ares-greek-god-of-war-architecture-statue-of-ares-son-of-hera-greek-god-of-war-olympian-god-greek-god-of-war-ares-son-of-zeus.jpg");
+        }
+        66.67% {
+          background-image: url("https://w0.peakpx.com/wallpaper/998/12/HD-wallpaper-david-clouds-design-flowers-grainy-grey-statue-yellow.jpg");
+        }
+      }
+
+      .dashboard {
+        background-color: rgba(0, 0, 0, 0.5);
+        background-position: center;
+        background-size: cover;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        margin: 20px auto;
+        padding: 20px;
+        padding-bottom: 60px;
+        width: 100%;
+        position: relative;
+        z-index: 1;
+      }
+
+      .dashboard h1,
+      .dashboard p {
+        color: #ffdc00;
+        text-shadow: 2px 2px 2px #654321;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .button-container {
+        text-align: right;
+        margin-top: 20px;
+      }
+
+      .add-button {
+        background-color: rgb(0, 187, 177);
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        cursor: pointer;
+        font-size: 16px;
+        padding: 10px 20px;
+        transition: background-color 0.3s;
+        margin-right: 30px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .add-button:hover {
+        background-color: rgb(0, 143, 133);
+      }
+
+      .add-button-container {
+        position: absolute;
+        top: 10px;
+        right: 20px;
+      }
+
+      .footer {
+        background-color: #fff;
+        box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        position: bottom;
+      }
+
+      .add-button-footer {
+        position: absolute;
+        bottom: 30px;
+        right: 30px;
+        background-color: rgb(0, 187, 177);
+        border: none;
+        border-radius: 50%;
+        color: #fff;
+        cursor: pointer;
+        font-size: 24px;
+        width: 50px;
+        height: 50px;
+        text-align: center;
+        line-height: 1.2;
+        box-shadow: 0 0 10px rgba(0, 187, 177, 0.7),
+          0 0 20px rgba(0, 187, 177, 0.5), 0 0 30px rgba(0, 187, 177, 0.3);
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        overflow: auto;
+        /* flex-wrap: flexbox; */
+      
+
+      }
+
+      li {
+        width: calc(100% / 3);
+        margin: 10px;
+        /* width: 200px; Adjust this to your desired width */
+        height: 200px; /* Adjust this to your desired height */
+        border: 1px solid #ccc;
+        margin: 10px;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .book-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0;
+      margin: 0;
+    }
+
+    .book-item {
+      width: calc(33.33% - 20px);
+      margin: 7px;
+      padding: 10px; 
+      padding-left: 90px;
+      background-color: rgba(180, 135, 76, 0.362); /* Change the alpha value to adjust transparency */
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+
+    .book-details {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+
+    .book-buttons {
+      display: flex;
+      justify-content: space-between;
+    }
+
+
+
+      .add-button-footer:hover {
+        background-color: rgb(0, 143, 133);
+      }
+    </style>
+</head>
+<body>
+  <div class="slideshow"></div>
+  <div class="dashboard">
+    <div class="add-button-container">
+      <a href="/users/logout" class="add-button">Logout</a>
+    </div>
+    <h1>Welcome to your dashboard</h1>
+    <p>Here you can view your books and add new ones</p>
+  </div>
+  <div>
+    <ul class="book-list">
+      <% books.forEach(book => { %>
+      <li class="book-item">
+        <div class="book-details">
+          <h3><%= book.title %> by <%= book.author %></h3>
+          <p>Genre: <%= book.genre %></p>
+          <p>Date Published: <%= book.datePublished %></p>
+          <p>Page Count: <%= book.pageCount %></p>
+        </div>
+        <div class="book-buttons">
+          <!-- <form action="/books/<%= book._id %>/update" method="get"> -->
+            <a href="/books/<%= book._id %>/update"><button type="button" class="edit-button">Edit</button></a>
+            <!-- <button type="button" class="delete-button">Delete</button> -->
+            <form action="/books/<%= book._id %>/delete" method="post">
+              <button type="submit" class="delete-button">Delete</button>
+            </form>
+          </a>
+        </div>
+      </li>
+      <% }); %>
+    </ul>
+  </div>
+  <a href="/books/addBooks" class="add-button-footer">+</a>
+</body>
+</html>
